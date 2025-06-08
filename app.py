@@ -6,13 +6,7 @@ from datetime import datetime
 import speech_recognition as sr
 import streamlit as st
 
-
-# --- Seed Data ---
-def seed_cases():
-    return [
-        # [cases unchanged for brevity...]
-    ]
-
+from seed_cases import seed_cases
 
 # --- Initialize Session State ---
 if 'initialized' not in st.session_state:
@@ -35,6 +29,7 @@ def transcribe_audio_bytes(audio_file):
 
         recognizer = sr.Recognizer()
         with sr.AudioFile(audio_io) as source:
+            recognizer.adjust_for_ambient_noise(source, duration=0.5)
             audio_data = recognizer.record(source)
             print(audio_data)
             transcript = recognizer.recognize_google(audio_data)
@@ -78,7 +73,7 @@ def record_and_transcribe_audio():
 
 # --- Page Rendering ---
 def render_home():
-    st.image("case logo.png", width=150)
+    st.image("case logo.svg", width=100)
     st.title('vCase: Voice-Centered Case Communication')
     st.markdown("""
     **vCase** is a vCon-powered platform that turns one-off reports into rich, ongoing conversations. 
