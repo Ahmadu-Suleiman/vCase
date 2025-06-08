@@ -1,56 +1,128 @@
 import streamlit as st
 from datetime import datetime
 
+
 # --- Seed Data ---
 def seed_cases():
     return [
         {
             'id': 1,
-            'title': 'Water Access Complaint',
-            'summary': 'Community reports broken well pump; follow-ups needed.',
+            'title': 'Broken Borehole in Zamfara Village',
+            'summary': 'Residents of a rural village in Zamfara report that their only borehole is not dispensing water. Community leaders and organizations have exchanged updates on repair plans.',
             'threads': [
                 {
-                    'title': 'Initial Report',
+                    'title': 'Initial Complaint',
                     'messages': [
-                        {'timestamp': '2025-06-01 08:15', 'author': 'Member', 'channel': 'vCon', 'text': 'The well pump at the east end is not working.'},
-                        {'timestamp': '2025-06-01 09:00', 'author': 'Organization', 'channel': 'Email', 'text': 'Acknowledged. We will inspect tomorrow.'},
-                        {'timestamp': '2025-06-02 10:30', 'author': 'Member', 'channel': 'SMS', 'text': 'Any update on the inspection?'},
-                        {'timestamp': '2025-06-02 11:00', 'author': 'Organization', 'channel': 'vCon', 'text': 'Inspection done; parts ordered.'},
+                        {'timestamp': '2025-06-01 08:15', 'author': 'Member', 'channel': 'vCon',
+                         'text': 'The borehole in Gidan-Dari village has stopped working completely.'},
+                        {'timestamp': '2025-06-01 09:00', 'author': 'Organization', 'channel': 'Email',
+                         'text': 'Thanks for reporting. Our team will assess the site.'},
+                        {'timestamp': '2025-06-02 10:30', 'author': 'Member', 'channel': 'SMS',
+                         'text': 'People are fetching from unsafe streams now.'},
+                        {'timestamp': '2025-06-02 11:00', 'author': 'Organization', 'channel': 'vCon',
+                         'text': 'Assessment completed. We will provide new pump parts soon.'},
                     ]
                 },
                 {
-                    'title': 'Follow-Up Actions',
+                    'title': 'Repairs and Confirmation',
                     'messages': [
-                        {'timestamp': '2025-06-03 14:20', 'author': 'Organization', 'channel': 'SMS', 'text': 'Pump installed. Please confirm.'},
-                        {'timestamp': '2025-06-03 15:00', 'author': 'Member', 'channel': 'vCon', 'text': 'Confirmed—water flow resumed.'},
+                        {'timestamp': '2025-06-03 14:20', 'author': 'Organization', 'channel': 'SMS',
+                         'text': 'Pump parts delivered. Installation ongoing.'},
+                        {'timestamp': '2025-06-03 15:00', 'author': 'Member', 'channel': 'vCon',
+                         'text': 'Installation complete. Water is flowing again. Thank you!'},
                     ]
                 }
             ]
         },
         {
             'id': 2,
-            'title': 'Road Repair Request',
-            'summary': 'Potholes on Main St. causing accidents.',
+            'title': 'Collapsed Bridge in Bayelsa',
+            'summary': 'A key bridge connecting two communities in Bayelsa collapsed after heavy rainfall. Case follows the safety alert and action plans.',
             'threads': [
                 {
-                    'title': 'Safety Alert',
+                    'title': 'Safety Alert and First Response',
                     'messages': [
-                        {'timestamp': '2025-06-02 07:45', 'author': 'Member', 'channel': 'SMS', 'text': 'Several accidents last night near Pond Road.'},
-                        {'timestamp': '2025-06-02 08:10', 'author': 'Organization', 'channel': 'Email', 'text': 'We have dispatched a crew.'},
-                        {'timestamp': '2025-06-02 16:00', 'author': 'Organization', 'channel': 'vCon', 'text': 'Crew completed temporary patch.'},
-                        {'timestamp': '2025-06-03 09:30', 'author': 'Member', 'channel': 'SMS', 'text': 'Patch seems stable.'},
+                        {'timestamp': '2025-06-02 07:45', 'author': 'Member', 'channel': 'SMS',
+                         'text': 'The wooden bridge to Okolobiri has collapsed. People are stranded.'},
+                        {'timestamp': '2025-06-02 08:10', 'author': 'Organization', 'channel': 'Email',
+                         'text': 'We are sending engineers to assess.'},
+                        {'timestamp': '2025-06-02 16:00', 'author': 'Organization', 'channel': 'vCon',
+                         'text': 'Temporary crossing set up. Permanent fix under budget review.'},
+                        {'timestamp': '2025-06-03 09:30', 'author': 'Member', 'channel': 'SMS',
+                         'text': 'Thanks. People are using the detour path for now.'},
                     ]
                 },
                 {
-                    'title': 'Permanent Fix Plan',
+                    'title': 'Funding and Contractor Engagement',
                     'messages': [
-                        {'timestamp': '2025-06-04 10:00', 'author': 'Organization', 'channel': 'Email', 'text': 'Contractor scheduled for June 10.'},
-                        {'timestamp': '2025-06-05 12:00', 'author': 'Member', 'channel': 'vCon', 'text': 'Please share cost details.'},
+                        {'timestamp': '2025-06-04 10:00', 'author': 'Organization', 'channel': 'Email',
+                         'text': 'State government allocated emergency funds.'},
+                        {'timestamp': '2025-06-05 12:00', 'author': 'Member', 'channel': 'vCon',
+                         'text': 'Please ensure contractor begins soon. Rainfall expected again.'},
+                    ]
+                }
+            ]
+        },
+        {
+            'id': 3,
+            'title': 'Unpaid Teachers in Local School',
+            'summary': 'Teachers at a public school in Osun State have not been paid for three months. PTA and community leaders intervene.',
+            'threads': [
+                {
+                    'title': 'Teacher Complaints',
+                    'messages': [
+                        {'timestamp': '2025-06-01 07:10', 'author': 'Member', 'channel': 'vCon',
+                         'text': 'We have not received our salaries since March. We cannot continue teaching without pay.'},
+                        {'timestamp': '2025-06-01 08:30', 'author': 'Organization', 'channel': 'Email',
+                         'text': 'The issue is under review by the local government.'},
+                        {'timestamp': '2025-06-02 09:00', 'author': 'Member', 'channel': 'SMS',
+                         'text': 'Students are missing classes. We need action urgently.'},
+                        {'timestamp': '2025-06-02 10:00', 'author': 'Organization', 'channel': 'vCon',
+                         'text': 'We’ve escalated it to the education commissioner.'},
+                    ]
+                },
+                {
+                    'title': 'PTA Mediation',
+                    'messages': [
+                        {'timestamp': '2025-06-03 12:30', 'author': 'Organization', 'channel': 'SMS',
+                         'text': 'PTA has offered emergency stipends.'},
+                        {'timestamp': '2025-06-03 14:00', 'author': 'Member', 'channel': 'vCon',
+                         'text': 'Thank you. Teaching will resume while we await salary resolution.'},
+                    ]
+                }
+            ]
+        },
+        {
+            'id': 4,
+            'title': 'Electricity Transformer Theft in Kaduna',
+            'summary': 'Residents report the theft of a community transformer. The issue is logged, and discussions around security and replacement begin.',
+            'threads': [
+                {
+                    'title': 'Incident Reporting',
+                    'messages': [
+                        {'timestamp': '2025-06-01 06:00', 'author': 'Member', 'channel': 'vCon',
+                         'text': 'Our transformer at Angwan Rimi was stolen last night.'},
+                        {'timestamp': '2025-06-01 08:00', 'author': 'Organization', 'channel': 'Email',
+                         'text': 'We are working with police and NEPA to investigate.'},
+                        {'timestamp': '2025-06-01 11:45', 'author': 'Member', 'channel': 'SMS',
+                         'text': 'We have no light and no business activity today.'},
+                        {'timestamp': '2025-06-01 13:00', 'author': 'Organization', 'channel': 'vCon',
+                         'text': 'Security patrols will increase. Replacement being discussed.'},
+                    ]
+                },
+                {
+                    'title': 'Replacement Planning',
+                    'messages': [
+                        {'timestamp': '2025-06-02 10:00', 'author': 'Organization', 'channel': 'Email',
+                         'text': 'New transformer will arrive in 5 working days.'},
+                        {'timestamp': '2025-06-02 12:30', 'author': 'Member', 'channel': 'vCon',
+                         'text': 'Thank you. We will inform residents and prepare security volunteers.'},
                     ]
                 }
             ]
         }
     ]
+
 
 if 'initialized' not in st.session_state:
     st.session_state.initialized = True
@@ -59,12 +131,19 @@ if 'initialized' not in st.session_state:
     st.session_state.case_id = None
     st.session_state.thread_index = None
 
+
 # --- Helper Functions ---
 def format_message(msg):
     return f"**{msg['author']}** ({msg['channel']}) @ {msg['timestamp']}  \n> {msg['text']}"
 
+
 # --- Page Rendering ---
 def render_home():
+    st.logo(
+        image="case logo.png",
+        size="large",
+        link="https://linktr.ee/case.be.heard"
+    )
     st.title('vCase: Voice-Centered Case Communication')
     st.markdown("""
     **vCase** is a vCon-powered platform that turns one-off reports into rich, ongoing conversations. 
@@ -84,6 +163,7 @@ def render_home():
             st.session_state.case_id = case['id']
             st.rerun()
 
+
 def render_case():
     case = next(c for c in st.session_state.cases if c['id'] == st.session_state.case_id)
     st.header(f"Case #{case['id']}: {case['title']}")
@@ -98,6 +178,7 @@ def render_case():
     if st.button('Back to Home'):
         st.session_state.page = 'home'
         st.rerun()
+
 
 def render_thread():
     case = next(c for c in st.session_state.cases if c['id'] == st.session_state.case_id)
@@ -134,6 +215,18 @@ def render_thread():
     if st.button('Home'):
         st.session_state.page = 'home'
         st.rerun()
+
+
+st.set_page_config(
+    page_title="vCase",
+    page_icon="case logo.png",
+    layout="wide",
+    menu_items={
+        'Get Help': 'mailto:casebeheard@gmail.com',
+        'Report a bug': "mailto:casebeheard@gmail.com",
+        'About': "https://linktr.ee/case.be.heard"
+    }
+)
 
 # --- Render Appropriate Page ---
 if st.session_state.page == 'home':
