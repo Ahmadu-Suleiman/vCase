@@ -30,14 +30,15 @@ def format_message(msg):
 
 def transcribe_audio_bytes(audio_file):
     try:
-        audio_bytes = audio_file.read()  # Get bytes from UploadedFile
+        audio_bytes = audio_file.read()
         audio_io = io.BytesIO(audio_bytes)
 
         recognizer = sr.Recognizer()
         with sr.AudioFile(audio_io) as source:
             audio_data = recognizer.record(source)
-        transcript = recognizer.recognize_google(audio_data)
-        return transcript
+            print(audio_data)
+            transcript = recognizer.recognize_google(audio_data)
+            return transcript
     except sr.UnknownValueError:
         st.error("Could not understand the audio.")
     except sr.RequestError as e:
