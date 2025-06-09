@@ -1,2 +1,2 @@
-SpeechRecognition~=3.14.3
-streamlit~=a1.45.1
+SpeechRecognition
+streamlit
