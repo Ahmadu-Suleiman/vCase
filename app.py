@@ -14,7 +14,6 @@ if 'initialized' not in st.session_state:
     st.session_state.thread_index = None
 
 
-# --- Helper Functions ---
 def format_message(msg):
     return f"**{msg['author']}** ({msg['channel']}) @ {msg['timestamp']}  \n> {msg['text']}"
 
@@ -28,7 +27,6 @@ def transcribe_audio_bytes(audio_file):
         with sr.AudioFile(audio_io) as source:
             recognizer.adjust_for_ambient_noise(source, duration=0.5)
             audio_data = recognizer.record(source)
-            print(audio_data)
             transcript = recognizer.recognize_google(audio_data)
             return transcript
     except sr.UnknownValueError:
@@ -38,20 +36,18 @@ def transcribe_audio_bytes(audio_file):
     return None
 
 
-# --- Audio Recorder and Transcription ---
 def record_and_transcribe_audio():
     try:
         st.subheader("🎙️ Record Audio for Transcription")
         audio_file = st.audio_input("Click to record audio message:")
         if audio_file is not None:
-            st.audio(audio_file)
             transcript = transcribe_audio_bytes(audio_file)
             if transcript:
                 st.success("Transcription successful:")
                 st.info(transcript)
                 with st.form("add_audio_msg_form"):
                     author = st.selectbox("Author (for audio)", ["Member", "Organization"], key="a_author")
-                    channel = st.selectbox("Channel", ['Text', 'SMS', 'Email', 'Transcript'], key="a_channel")
+                    channel = st.selectbox("Channel", ['Transcript', 'Text', 'SMS', 'Email'], key="a_channel")
                     if st.form_submit_button("Add Transcribed Message"):
                         return {
                             'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M'),
