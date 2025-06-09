@@ -1,0 +1,7 @@
+pip~=23.2.1
+attrs~=25.3.0
+protobuf~=6.31.1
+cryptography~=45.0.3
+pillow~=11.2.1
+SpeechRecognition~=3.14.3
+streamlit~=a1.45.1
