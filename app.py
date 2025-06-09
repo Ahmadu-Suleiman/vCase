@@ -1,11 +1,8 @@
 import io
-import os
-import tempfile
-from datetime import datetime
-
 import speech_recognition as sr
 import streamlit as st
 
+from datetime import datetime
 from seed_cases import seed_cases
 
 # --- Initialize Session State ---
@@ -54,7 +51,7 @@ def record_and_transcribe_audio():
                 st.info(transcript)
                 with st.form("add_audio_msg_form"):
                     author = st.selectbox("Author (for audio)", ["Member", "Organization"], key="a_author")
-                    channel = st.selectbox("Channel", ["vCon", "SMS", "Email"], key="a_channel")
+                    channel = st.selectbox("Channel", ['Text', 'SMS', 'Email', 'Transcript'], key="a_channel")
                     if st.form_submit_button("Add Transcribed Message"):
                         return {
                             'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M'),
@@ -74,7 +71,8 @@ def record_and_transcribe_audio():
 # --- Page Rendering ---
 def render_home():
     st.image("case logo.svg", width=100)
-    st.title('vCase: Voice-Centered Case Communication')
+    st.title('vCase')
+    st.subheader('vCon-Powered Communication Hub for the CASE Platform', divider='orange')
     st.markdown("""
     **vCase** is a vCon-powered platform that turns one-off reports into rich, ongoing conversations. 
     It brings together voice transcripts, SMS, and email into one centralized thread for each case, 
@@ -83,7 +81,7 @@ def render_home():
     Each case holds:
     - A **chronological summary** for easy context
     - Multiple **threads** based on topics (e.g. Verification, Follow-Up)
-    - Unified **messages** labeled by channel (vCon, SMS, Email)
+    - Unified **messages** labeled by channel (SMS, Email, Transcripts)
 
     Explore your active cases below:
     """)
@@ -126,7 +124,7 @@ def render_thread():
     st.subheader('Add to Thread')
     with st.form(key='msg_form'):
         author = st.selectbox('Author', ['Member', 'Organization'])
-        channel = st.selectbox('Channel', ['vCon', 'SMS', 'Email'])
+        channel = st.selectbox('Channel', ['Text', 'SMS', 'Email', 'Transcript'])
         text = st.text_area('Message')
         if st.form_submit_button('Send Message') and text.strip():
             new_msg = {
@@ -153,17 +151,18 @@ def render_thread():
         st.rerun()
 
 
-# --- Page Routing ---
+# --- Page Setup ---
 st.set_page_config(
     page_title="vCase",
     page_icon="case logo.png",
-    layout="wide",
     menu_items={
         'Get Help': 'mailto:casebeheard@gmail.com',
-        'Report a bug': 'mailto:casebeheard@gmail.com'
+        'Report a bug': 'mailto:casebeheard@gmail.com',
+        'About': 'https://linktr.ee/case.be.heard'
     }
 )
 
+# --- Page Routing ---
 if st.session_state.page == 'home':
     render_home()
 elif st.session_state.page == 'case':
