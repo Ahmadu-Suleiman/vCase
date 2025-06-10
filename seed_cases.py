@@ -271,5 +271,76 @@ def seed_cases():
                     ]
                 }
             ]
+        },
+        {
+            "id": 5,
+            "title": "Rumbling Thoughts Book Drive: Hayin Rigasa",
+            "summary": "A community member from Hayin Rigasa (Rigasa ward, Kaduna) follows up on a request for children's picture books as part of Rumbling Thoughts’ book drive to support underserved community libraries.",
+            "threads": [
+                {
+                    "title": "Initial Request and Confirmation",
+                    "messages": [
+                        {
+                            "timestamp": "2025-05-15 09:30",
+                            "author": "Member",
+                            "channel": "Email",
+                            "text": "Subject: Book Request for Hayin Rigasa Community Library\n\nDear Rumbling Thoughts,\n\nOur community library in Hayin Rigasa (Rigasa ward, Kaduna) is in urgent need of children’s picture books to support early literacy programs. We are currently operating with very limited materials for our youngest readers. Could Rumbling Thoughts assist through your book drive?\n\nThank you,\nCommunity Volunteer"
+                        },
+                        {
+                            "timestamp": "2025-05-15 14:45",
+                            "author": "Organization",
+                            "channel": "Email",
+                            "text": "Subject: Re: Book Request for Hayin Rigasa Community Library\n\nDear Community Volunteer,\n\nThank you for your thoughtful request. We understand the importance of supporting literacy in Hayin Rigasa. We've logged your request in our Rumbling Thoughts book drive system and will begin sourcing children’s picture books for donation or purchase.\n\nWe'll update you once we have a timeline.\n\nSincerely,\nRumbling Thoughts Team"
+                        },
+                        {
+                            "timestamp": "2025-05-20 11:00",
+                            "author": "Organization",
+                            "channel": "Transcript",
+                            "text": "Just confirming here in the group chat: we’ve noted the Hayin Rigasa library’s request and initiated sourcing through our donor network. Will provide an ETA soon."
+                        }
+                    ]
+                },
+                {
+                    "title": "Follow‑Up",
+                    "messages": [
+                        {
+                            "timestamp": "2025-06-10 10:15",
+                            "author": "Member",
+                            "channel": "SMS",
+                            "text": "Hello! Any update on the Hayin Rigasa library’s book request?"
+                        },
+                        {
+                            "timestamp": "2025-06-10 10:20",
+                            "author": "Organization",
+                            "channel": "SMS",
+                            "text": "Hi! The children’s picture books order is in progress. The supplier confirmed shipment is on track and should arrive by June 17, 2025 at the Hayin Rigasa community library."
+                        },
+                        {
+                            "timestamp": "2025-06-10 14:05",
+                            "author": "Member",
+                            "channel": "Transcript",
+                            "text": "Following up, any change in status for the Hayin Rigasa delivery?"
+                        },
+                        {
+                            "timestamp": "2025-06-10 14:10",
+                            "author": "Organization",
+                            "channel": "Transcript",
+                            "text": "Yes, it's still on schedule for June 17. We’ll confirm once it arrives at the Hayin Rigasa library."
+                        },
+                        {
+                            "timestamp": "2025-06-10 16:00",
+                            "author": "Member",
+                            "channel": "Email",
+                            "text": "Subject: Quick Clarification on Book Order\n\nThanks for the update. Could you also confirm if the packaging includes any display stands or if that’s a separate request?"
+                        },
+                        {
+                            "timestamp": "2025-06-10 16:30",
+                            "author": "Organization",
+                            "channel": "Email",
+                            "text": "Subject: Re: Quick Clarification on Book Order\n\nGood question. The current order under Rumbling Thoughts’ book drive doesn’t include display stands. If needed, we can submit a separate request for them. Just let us know how many you’d like.\n\nBest,\nRumbling Thoughts Team"
+                        }
+                    ]
+                }
+            ]
         }
     ]

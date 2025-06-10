@@ -41,9 +41,6 @@ def transcribe_audio_bytes(audio_bytes):
 def record_and_transcribe_audio():
     st.subheader("🎙️ Record Audio for Transcription")
     audio_file = st.audio_input("Click to record audio message:")
-    print('-----------------')
-    print('audio: ', audio_file is not None, 'transcript: ', st.session_state.transcript is not None, 'is same: ',
-          st.session_state.audio is audio_file)
     if audio_file:
         audio_bytes = audio_file.read()
         if st.session_state.audio != audio_bytes and st.session_state.transcript is None:
@@ -52,7 +49,6 @@ def record_and_transcribe_audio():
                 if transcript:
                     st.session_state.transcript = transcript
                     st.rerun()
-
     if st.session_state.transcript:
         st.success("Transcription successful:")
         st.info(st.session_state.transcript)
